@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingResponse {
+
     private Long id;
 
     private LocalDate checkInDate;
@@ -37,6 +39,4 @@ public class BookingResponse {
         this.checkOutDate = checkOutDate;
         this.bookingConfirmationCode = bookingConfirmationCode;
     }
-
-
 }

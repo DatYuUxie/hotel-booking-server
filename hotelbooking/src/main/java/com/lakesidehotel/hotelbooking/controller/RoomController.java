@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+@CrossOrigin("http://localhost:5173")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rooms")
@@ -105,7 +106,7 @@ public class RoomController {
     }
 
     private RoomResponse getRoomResponse(Room room) {
-        List<BookedRoom> bookings = getAllBookingByRoomId(room.getId());
+//        List<BookedRoom> bookings = getAllBookingByRoomId(room.getId());
 //        List<BookingResponse> bookingInfo = bookings
 //                .stream()
 //                .map(booking -> new BookingResponse(booking.getId(),
@@ -130,4 +131,6 @@ public class RoomController {
     private List<BookedRoom> getAllBookingByRoomId(Long roomId) {
         return bookingService.getAllBookingsByRoomId(roomId);
     }
+
+
 }
