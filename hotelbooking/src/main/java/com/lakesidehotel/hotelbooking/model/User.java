@@ -10,8 +10,8 @@ import java.util.HashSet;
 
 
 @Entity
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 public class User {
     @Id
@@ -29,5 +29,6 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles = new HashSet<>();
+
 
 }

@@ -15,8 +15,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 @Component
-public class JwtAuthEntryPoint  implements AuthenticationEntryPoint {
+public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,

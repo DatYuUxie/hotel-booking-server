@@ -1,6 +1,7 @@
 package com.lakesidehotel.hotelbooking.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,15 +11,18 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+
 @Entity
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users = new HashSet<>();
 
@@ -34,8 +38,8 @@ public class Role {
     public void removeUserFromRole(User user) {
         user.getRoles().remove(this);
         this.getUsers().remove(user);
-    }
 
+    }
 
     public void removeAllUsersFromRole() {
         if (this.getUsers() != null) {
@@ -44,9 +48,7 @@ public class Role {
         }
     }
 
-    public String getName(){
-        return name!=null?name:"";
+    public String getName() {
+        return name != null ? name : "";
     }
-
-
 }
